@@ -1,0 +1,160 @@
+/* General body and layout styling */
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.side-menu {
+    width: 100%;
+    max-width: 250px;
+    background-color: #282c34;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#city-input {
+    width: 100%;
+    max-width: 300px;
+}
+
+.weather-data {
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #A5B68D;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.loading-spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animation for weather icons and other elements */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Styling for the extra buttons for temperature filtering */
+.extra-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.extra-buttons button {
+    flex: 1 1 200px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Charts section styling */
+.charts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.charts .chart {
+    display: block;
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    height: 400px;
+}
+
+/* Responsive design for tablets and smaller devices */
+@media (max-width: 768px) {
+    .side-menu {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .top-bar {
+        flex-direction: column;
+    }
+
+    .charts {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .charts .chart {
+        width: 100%;
+    }
+
+    .extra-buttons {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .extra-buttons button {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 480px) {
+    #city-input {
+        max-width: 100%;
+    }
+
+    .charts .chart {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .extra-buttons button {
+        width: 100%;
+        max-width: 100%;
+    }
+}
